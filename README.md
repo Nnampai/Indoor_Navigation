@@ -5,6 +5,7 @@ Indoor navigation system using Bluetooth RSSI fingerprinting, KNN location estim
 * Python backend for location estimation and pathfinding
 * Live indoor map visualization
 
+
 ## 📦 Project Structure
 <pre>
 project/
@@ -28,20 +29,22 @@ project/
         └── navigate.py          # Sub-page to handle navigation UI
 </pre>
 
-## 💻 Development Tools
-### 🧠 Python Environment
-* Python Version: 3.9 or higher
-* Recommended IDE: PyCharm Community/Professional Edition
-(Tested on: PyCharm 2023.1+)
 
+## 💻 Development Tools
 ### 🛠 Arduino Environment
-* Arduino IDE Version: 2.2.1
+* Arduino IDE Version: 2.3.4
 * ESP32 Board Package:
-* ESP32 by Espressif Systems: version 2.0.11
+    * ESP32 by Espressif Systems: version 3.1.1
 * Required Libraries:
-  * ESP32 BLE Arduino by Neil Kolban / nkolban: version 1.0.1
-  * ArduinoJson: version 6.21.3
-  * PubSubClient: version 2.8
+    * ESP32 BLE Arduino by Neil Kolban / nkolban: version 1.0.1
+    * NimBLE-Arduino: version 2.2.1
+    * ArduinoJson: version 7.3.0
+    * PubSubClient: version 2.8
+### 🧠 Python Environment
+* Python Version: 3.9+ (Tested on: Python 3.13)
+* Recommended IDE: PyCharm Community/Professional Edition
+(Tested on: PyCharm 2024.3.2)
+
 
 ## 🧠 Key Features
 * 📡 Live RSSI input via MQTT
@@ -50,6 +53,7 @@ project/
 * 🗺️ Map visualization with real-time location updates
 * 🌐 Web interface (Streamlit) for selecting and navigating between rooms
 
+
 ## 🚀 How to Run (Python)
 1. Install requirements:
 <pre> pip install streamlit pandas numpy scikit-learn paho-mqtt </pre>
@@ -57,11 +61,12 @@ project/
 <pre> streamlit run main.py </pre>
 3. Navigate to http://localhost:8501 in your browser.
 
+
 ## 🔄 How It Works
 1. ESP32 beacon advertises a Bluetooth signal.
 2. ESP32 RSSI Collector scans RSSI values and sends them via MQTT.
 3. Python backend:
-  * Receives data in real time (mqtt_handler.py)
-  * Estimates current location (location_finder.py)
-  * Calculates path using A* (navigation.py)
-  * Updates map and path live in the browser (main.py + Streamlit)
+      * Receives data in real time (mqtt_handler.py)
+      * Estimates current location (location_finder.py)
+      * Calculates path using A* (navigation.py)
+      * Updates map and path live in the browser (main.py + Streamlit)
